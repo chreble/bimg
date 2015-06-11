@@ -15,6 +15,7 @@ func TestDeterminateImageType(t *testing.T) {
 		{"test.jpg", JPEG},
 		{"test.png", PNG},
 		{"test.webp", WEBP},
+		{"test.gif", MAGICK},
 	}
 
 	for _, file := range files {
@@ -36,6 +37,7 @@ func TestDeterminateImageTypeName(t *testing.T) {
 		{"test.jpg", "jpeg"},
 		{"test.png", "png"},
 		{"test.webp", "webp"},
+		{"test.gif", "magick"},
 	}
 
 	for _, file := range files {
@@ -53,7 +55,7 @@ func TestIsTypeSupported(t *testing.T) {
 	types := []struct {
 		name ImageType
 	}{
-		{JPEG}, {PNG}, {WEBP},
+		{JPEG}, {PNG}, {WEBP}, {MAGICK},
 	}
 
 	for _, n := range types {
@@ -71,7 +73,7 @@ func TestIsTypeNameSupported(t *testing.T) {
 		{"jpg", true},
 		{"png", true},
 		{"webp", true},
-		{"gif", false},
+		{"magick", true},
 	}
 
 	for _, n := range types {

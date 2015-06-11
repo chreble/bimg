@@ -15,6 +15,7 @@ func TestVipsRead(t *testing.T) {
 		{"test.jpg", JPEG},
 		{"test.png", PNG},
 		{"test.webp", WEBP},
+		{"test.gif", MAGICK},
 	}
 
 	for _, file := range files {
@@ -84,7 +85,7 @@ func TestVipsWatermark(t *testing.T) {
 
 	newImg, err := vipsWatermark(image, watermark)
 	if err != nil {
-		t.Errorf("Cannot add watermark: %s", err)
+		t.Fatalf("Cannot add watermark: %s", err)
 	}
 
 	buf, _ := vipsSave(newImg, vipsSaveOptions{Quality: 95})
